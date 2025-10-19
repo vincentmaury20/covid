@@ -1,17 +1,26 @@
+{# Template de base qui sera hérité par tous les autres templates #}
 <!DOCTYPE html>
 <html>
     <head>
+        {# Définition de l'encodage UTF-8 #}
         <meta charset="UTF-8">
+        {# Block title qui peut être surchargé par les templates enfants #}
         <title>{% block title %}Welcome!{% endblock %}</title>
+        {# Icône Symfony dans la barre du navigateur #}
         <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>">
+        {# Block pour inclure les feuilles de style CSS #}
         {% block stylesheets %}
         {% endblock %}
 
+        {# Block pour inclure les scripts JavaScript #}
         {% block javascripts %}
+            {# Utilisation de l'importmap pour gérer les dépendances JS #}
             {% block importmap %}{{ importmap('app') }}{% endblock %}
         {% endblock %}
     </head>
     <body>
+        {# Block principal pour le contenu de la page #}
         {% block body %}{% endblock %}
     </body>
 </html>
+{# Depuis la doc de Bootstrap #}
